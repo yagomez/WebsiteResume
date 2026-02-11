@@ -1,26 +1,112 @@
-@import "tailwindcss";
+/* NES.css Portfolio Styles */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #212121;
+  --foreground: #e0e0e0;
+  --primary: #00ff00;
+  --secondary: #ff00ff;
+  --accent: #00ffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 16px;
+  font-family: Arial, sans-serif;
+  color: var(--primary);
+  text-shadow: 2px 2px 0px var(--secondary);
+}
+
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
+h4 { font-size: 14px; }
+
+p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent);
+}
+
+/* NES.css Overrides */
+.nes-btn {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+.nes-container {
+  font-family: inherit;
+  background-color: #1a1a1a;
+}
+
+.nes-container.is-dark {
+  background-color: #0d0d0d;
+  border-color: #333;
+}
+
+.title {
+  color: var(--primary);
+  text-shadow: 2px 2px 0px var(--secondary);
+}
+
+/* Utility Classes */
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.glow {
+  text-shadow: 0 0 10px currentColor;
+}
+
+.max-w-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border: 1px solid #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
 }
