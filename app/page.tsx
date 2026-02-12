@@ -27,6 +27,32 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  // Track loading
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    
+    const file = playlist[currentTrack]?.file;
+    if (!file) return;
+    
+    audio.src = `/music/${file}`;
+  }, [currentTrack]);
+
+  // Play/pause control
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    
+    if (isPlaying) {
+      audio.play().catch(() => {
+        // Silent catch - autoplay might be blocked
+      });
+    } else {
+      audio.pause();
+    }
+  }, [isPlaying]);
+
+  // Track time updates and metadata
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -51,49 +77,6 @@ export default function Home() {
       audio.removeEventListener('ended', handleEnded);
     };
   }, [currentTrack, playlist.length]);
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    
-    const file = playlist[currentTrack]?.file;
-    if (!file) return;
-    
-    audio.src = `/music/${file}`;
-    audio.load();
-    
-    if (isPlaying) {
-      setTimeout(() => {
-        audio.play().catch((err) => {
-          console.log('Autoplay blocked or error:', err);
-        });
-      }, 100);
-    }
-  }, [currentTrack, playlist, isPlaying]);
-
-  // Autoplay on page load/first interaction
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const handleFirstInteraction = () => {
-      setIsPlaying(true);
-      document.removeEventListener('click', handleFirstInteraction);
-      document.removeEventListener('keydown', handleFirstInteraction);
-      document.removeEventListener('touchstart', handleFirstInteraction);
-    };
-
-    // Add listeners for user interaction to start playback
-    document.addEventListener('click', handleFirstInteraction);
-    document.addEventListener('keydown', handleFirstInteraction);
-    document.addEventListener('touchstart', handleFirstInteraction);
-
-    return () => {
-      document.removeEventListener('click', handleFirstInteraction);
-      document.removeEventListener('keydown', handleFirstInteraction);
-      document.removeEventListener('touchstart', handleFirstInteraction);
-    };
-  }, []);
   const handlePlayPause = () => {
     setIsPlaying(!isPlaying);
   };
@@ -540,8 +523,10 @@ export default function Home() {
               <audio 
                 ref={audioRef}
                 crossOrigin="anonymous"
-                preload="metadata"
-              />
+                preload="auto"
+                controls
+              >
+              </audio>
               
               {/* Player Controls */}
               <div style={{ marginBottom: '12px' }}>
