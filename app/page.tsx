@@ -133,7 +133,7 @@ export default function Home() {
         minHeight: '28px'
       }}>
         {/* Logo in Nav */}
-        <img src="/images/ysicon.png" alt="MySpace Logo" style={{
+        <img src={getAssetPath('/images/ysicon.png')} alt="MySpace Logo" style={{
           height: '120px',
           width: 'auto'
         }} />
