@@ -348,7 +348,7 @@ export default function Home() {
                           <tr>
                             <td style={{ width: '45%', fontWeight: 'bold', paddingRight: '4px', color: '#000' }}>Status:</td>
                             <td style={{ color: '#000' }}>
-                              <img src="/images/online.png" alt="Online" style={{ width: '16px', height: '16px', marginRight: '4px', verticalAlign: 'middle' }} />
+                              <img src={getAssetPath('/images/online.png')} alt="Online" style={{ width: '16px', height: '16px', marginRight: '4px', verticalAlign: 'middle' }} />
                               Online
                             </td>
                           </tr>
@@ -527,7 +527,7 @@ export default function Home() {
                       {/* Tom - Original MySpace Creator */}
                       <div style={{ textAlign: 'center', marginBottom: '12px' }}>
                         <img
-                          src="/images/tom.png"
+                          src={getAssetPath('/images/tom.png')}
                           alt="Tom"
                           style={{
                             width: '100px',
@@ -546,7 +546,7 @@ export default function Home() {
                           MySpace Creator
                         </p>
                         <img 
-                          src="/images/online.png" 
+                          src={getAssetPath('/images/online.png')} 
                           alt="Online Now" 
                           className="online-flash"
                           style={{
@@ -845,7 +845,7 @@ export default function Home() {
         marginTop: '20px'
       }}>
         {/* Logo in Nav */}
-        <img src="/images/ysicon.png" alt="MySpace Logo" style={{
+        <img src={getAssetPath('/images/ysicon.png')} alt="MySpace Logo" style={{
           height: '120px',
           width: 'auto'
         }} />
