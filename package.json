@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "export": "next build && next export",
+    "deploy": "npm run build && git add out/ && git commit -m 'Deploy to GitHub Pages' && git push"
   },
   "dependencies": {
     "98.css": "^0.1.21",
