@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { getAssetPath } from '@/utils/assetPath';
 
 export default function Home() {
   const [showFirstImage, setShowFirstImage] = useState(true);
@@ -35,7 +36,7 @@ export default function Home() {
     const file = playlist[currentTrack]?.file;
     if (!file) return;
     
-    audio.src = `/music/${file}`;
+    audio.src = getAssetPath(`/music/${file}`);
   }, [currentTrack]);
 
   // Play/pause control
@@ -321,7 +322,7 @@ export default function Home() {
                   <tr>
                     <td style={{ padding: '8px', background: '#c0c0c0' }}>
                       <img 
-                        src={showFirstImage ? "/images/pp1.JPG" : "/images/pp2.JPG"}
+                        src={showFirstImage ? getAssetPath("/images/pp1.JPG") : getAssetPath("/images/pp2.JPG")}
                         alt="Profile" 
                         style={{ width: '100%', marginBottom: '8px', border: '2px solid #000' }}
                       />
