@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { getAssetPath } from '@/utils/assetPath';
+import { NostalgiaNavLink } from '@/components/NostalgiaNavLink';
 
 export default function Home() {
   const [showFirstImage, setShowFirstImage] = useState(true);
@@ -151,56 +152,11 @@ export default function Home() {
           }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
             Home
           </Link>
-          <Link href="/" style={{
-            color: '#fff',
-            textDecoration: 'none',
-            fontSize: '10px',
-            fontWeight: 'normal',
-            cursor: 'pointer',
-            padding: '2px 4px'
-          }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
-            Profile
-          </Link>
-          <Link href="/" style={{
-            color: '#fff',
-            textDecoration: 'none',
-            fontSize: '10px',
-            fontWeight: 'normal',
-            cursor: 'pointer',
-            padding: '2px 4px'
-          }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
-            Friends
-          </Link>
-          <Link href="/" style={{
-            color: '#fff',
-            textDecoration: 'none',
-            fontSize: '10px',
-            fontWeight: 'normal',
-            cursor: 'pointer',
-            padding: '2px 4px'
-          }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
-            Music
-          </Link>
-          <Link href="/" style={{
-            color: '#fff',
-            textDecoration: 'none',
-            fontSize: '10px',
-            fontWeight: 'normal',
-            cursor: 'pointer',
-            padding: '2px 4px'
-          }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
-            Photos
-          </Link>
-          <Link href="/" style={{
-            color: '#fff',
-            textDecoration: 'none',
-            fontSize: '10px',
-            fontWeight: 'normal',
-            cursor: 'pointer',
-            padding: '2px 4px'
-          }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
-            Videos
-          </Link>
+          <NostalgiaNavLink label="Profile" style={{ color: '#fff', padding: '2px 4px' }} />
+          <NostalgiaNavLink label="Friends" style={{ color: '#fff', padding: '2px 4px' }} />
+          <NostalgiaNavLink label="Music" style={{ color: '#fff', padding: '2px 4px' }} />
+          <NostalgiaNavLink label="Photos" style={{ color: '#fff', padding: '2px 4px' }} />
+          <NostalgiaNavLink label="Videos" style={{ color: '#fff', padding: '2px 4px' }} />
           <Link href="/blog" style={{
             color: '#fff',
             textDecoration: 'none',
@@ -237,24 +193,10 @@ export default function Home() {
         </div>
 
         {/* Right Side Account Links */}
-        <div style={{ display: 'flex', gap: '12px', marginLeft: 'auto' }}>
-          <Link href="/" style={{
-            color: '#fff',
-            textDecoration: 'none',
-            fontSize: '10px',
-            cursor: 'pointer'
-          }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
-            Sign Out
-          </Link>
+        <div style={{ display: 'flex', gap: '12px', marginLeft: 'auto', alignItems: 'center' }}>
+          <NostalgiaNavLink label="Sign Out" style={{ color: '#fff' }} />
           <span style={{ color: '#666', fontSize: '10px' }}>|</span>
-          <Link href="/" style={{
-            color: '#fff',
-            textDecoration: 'none',
-            fontSize: '10px',
-            cursor: 'pointer'
-          }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
-            Help
-          </Link>
+          <NostalgiaNavLink label="Help" style={{ color: '#fff' }} />
         </div>
       </div>
 

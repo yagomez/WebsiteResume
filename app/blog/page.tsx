@@ -49,7 +49,15 @@ export default function BlogIndex() {
         >
           Blog
         </div>
-        <div style={{ padding: '12px', background: '#c0c0c0', fontSize: '11px', color: '#000' }}>
+        <div
+          style={{
+            padding: '12px',
+            background: '#c0c0c0',
+            fontSize: '11px',
+            color: '#000',
+            fontFamily: "'MS Sans Serif', Arial, sans-serif",
+          }}
+        >
           <p style={{ margin: '0 0 12px 0', lineHeight: 1.6 }}>
             Short notes and longer-form write-ups about data engineering, ETL, and software craftsmanship.
           </p>
@@ -61,38 +69,41 @@ export default function BlogIndex() {
                   border: '1px solid #808080',
                   background: '#e0e0e0',
                   padding: '8px 10px',
+                  fontFamily: "'MS Sans Serif', Arial, sans-serif",
                 }}
               >
                 <div style={{ marginBottom: '4px' }}>
                   <span style={{ fontSize: '10px', color: '#555' }}>📅 {article.date}</span>
                 </div>
-                <h2
+                <div
                   style={{
                     fontSize: '12px',
                     fontWeight: 'bold',
                     margin: '0 0 4px 0',
                     color: '#000080',
+                    fontFamily: "'MS Sans Serif', Arial, sans-serif",
+                    textShadow: 'none',
                   }}
                 >
                   {article.title}
-                </h2>
+                </div>
                 <p style={{ fontSize: '11px', margin: '0 0 6px 0', lineHeight: 1.4 }}>
                   {article.description}
                 </p>
                 <Link
                   href={article.link}
                   style={{
-                    ...{
-                      padding: '4px 8px',
-                      background: '#c0c0c0',
-                      border: '2px solid',
-                      borderColor: '#dfdfdf #808080 #808080 #dfdfdf',
-                      textDecoration: 'none',
-                      color: '#000080',
-                      fontSize: '10px',
-                      fontWeight: 'bold',
-                      cursor: 'pointer',
-                    },
+                    display: 'inline-block',
+                    padding: '4px 8px',
+                    background: '#c0c0c0',
+                    border: '2px solid',
+                    borderColor: '#dfdfdf #808080 #808080 #dfdfdf',
+                    textDecoration: 'none',
+                    color: '#000080',
+                    fontSize: '10px',
+                    fontWeight: 'bold',
+                    cursor: 'pointer',
+                    fontFamily: "'MS Sans Serif', Arial, sans-serif",
                   }}
                 >
                   READ MORE →

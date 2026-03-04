@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getAssetPath } from '@/utils/assetPath';
 import { ProjectCard, type Project } from '@/components/ProjectCard';
+import { NostalgiaNavLink } from '@/components/NostalgiaNavLink';
 
 export const metadata = {
   title: 'Projects | Portfolio',
@@ -95,21 +96,21 @@ export default function Projects() {
         </Link>
         <div style={{ display: 'flex', gap: '15px', alignItems: 'center', flex: 1 }}>
           <Link href="/" style={navLinkStyle}>Home</Link>
-          <Link href="/" style={navLinkStyle}>Profile</Link>
-          <Link href="/" style={navLinkStyle}>Friends</Link>
-          <Link href="/" style={navLinkStyle}>Music</Link>
-          <Link href="/" style={navLinkStyle}>Photos</Link>
-          <Link href="/" style={navLinkStyle}>Videos</Link>
+          <NostalgiaNavLink label="Profile" style={navLinkStyle} />
+          <NostalgiaNavLink label="Friends" style={navLinkStyle} />
+          <NostalgiaNavLink label="Music" style={navLinkStyle} />
+          <NostalgiaNavLink label="Photos" style={navLinkStyle} />
+          <NostalgiaNavLink label="Videos" style={navLinkStyle} />
           <Link href="/blog" style={navLinkStyle}>Blog</Link>
         </div>
         <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
           <input type="text" placeholder="Search" style={{ padding: '3px 4px', fontSize: '10px', border: '1px solid #666', width: '120px', background: '#fff', color: '#000' }} />
           <button style={{ padding: '3px 8px', background: '#ffcc00', color: '#000', border: '1px solid #999', fontSize: '10px', fontWeight: 'bold', cursor: 'pointer' }}>Go</button>
         </div>
-        <div style={{ display: 'flex', gap: '12px', marginLeft: 'auto' }}>
-          <Link href="/" style={navLinkStyle}>Sign Out</Link>
+        <div style={{ display: 'flex', gap: '12px', marginLeft: 'auto', alignItems: 'center' }}>
+          <NostalgiaNavLink label="Sign Out" style={navLinkStyle} />
           <span style={{ color: '#666', fontSize: '10px' }}>|</span>
-          <Link href="/" style={navLinkStyle}>Help</Link>
+          <NostalgiaNavLink label="Help" style={navLinkStyle} />
         </div>
       </div>
 
@@ -228,7 +229,7 @@ export default function Projects() {
         <img src={getAssetPath('/images/ysicon.png')} alt="Logo" style={{ height: '120px', width: 'auto' }} />
         <div style={{ display: 'flex', gap: '15px', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
           <Link href="/" style={navLinkStyle}>Home</Link>
-          <Link href="/" style={navLinkStyle}>Profile</Link>
+          <NostalgiaNavLink label="Profile" style={navLinkStyle} />
         </div>
       </div>
     </main>

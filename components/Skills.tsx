@@ -51,6 +51,9 @@ export function Skills({ skills = defaultSkills }: SkillsProps) {
           style={{
             padding: '12px',
             background: '#c0c0c0',
+            fontFamily: "'MS Sans Serif', Arial, sans-serif",
+            fontSize: '11px',
+            color: '#000',
           }}
         >
           <div
@@ -60,25 +63,29 @@ export function Skills({ skills = defaultSkills }: SkillsProps) {
               gap: '10px',
             }}
           >
-        {skills.map((skillGroup, idx) => (
+        {skills.map((skillGroup) => (
           <div
             key={skillGroup.category}
             style={{
               border: '1px solid #808080',
               background: '#e0e0e0',
               padding: '8px 10px',
+              fontFamily: "'MS Sans Serif', Arial, sans-serif",
             }}
           >
-            <h3
+            <div
               style={{
-              color: '#000080',
-              marginBottom: '8px',
-              fontSize: '12px',
-              fontWeight: 'bold',
-            }}>
+                color: '#000080',
+                marginBottom: '8px',
+                fontSize: '11px',
+                fontWeight: 'bold',
+                fontFamily: "'MS Sans Serif', Arial, sans-serif",
+                textShadow: 'none',
+              }}
+            >
               {skillGroup.category}
-            </h3>
-            <ul style={{ margin: 0, paddingLeft: '15px', fontSize: '10px' }}>
+            </div>
+            <ul style={{ margin: 0, paddingLeft: '15px', fontSize: '11px', color: '#000', fontFamily: "'MS Sans Serif', Arial, sans-serif" }}>
               {skillGroup.items.map((item) => (
                 <li
                   key={item}

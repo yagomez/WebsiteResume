@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getAssetPath } from '@/utils/assetPath';
+import { NostalgiaNavLink } from '@/components/NostalgiaNavLink';
 
 type PortfolioChromeProps = {
   children: React.ReactNode;
@@ -93,14 +94,10 @@ export function PortfolioChrome({ children }: PortfolioChromeProps) {
             Go
           </button>
         </div>
-        <div style={{ display: 'flex', gap: '12px', marginLeft: 'auto' }}>
-          <Link href="/" style={navLinkStyle}>
-            Sign Out
-          </Link>
+        <div style={{ display: 'flex', gap: '12px', marginLeft: 'auto', alignItems: 'center' }}>
+          <NostalgiaNavLink label="Sign Out" style={navLinkStyle} />
           <span style={{ color: '#666', fontSize: '10px' }}>|</span>
-          <Link href="/" style={navLinkStyle}>
-            Help
-          </Link>
+          <NostalgiaNavLink label="Help" style={navLinkStyle} />
         </div>
       </div>
 
@@ -185,9 +182,7 @@ export function PortfolioChrome({ children }: PortfolioChromeProps) {
           <Link href="/" style={navLinkStyle}>
             Home
           </Link>
-          <Link href="/" style={navLinkStyle}>
-            Profile
-          </Link>
+          <NostalgiaNavLink label="Profile" style={navLinkStyle} />
         </div>
       </div>
     </main>
