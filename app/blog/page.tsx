@@ -1,5 +1,5 @@
-import { Navbar } from '@/components/Navbar';
-import { Footer } from '@/components/Footer';
+import Link from 'next/link';
+import { PortfolioChrome } from '@/components/PortfolioChrome';
 
 export const metadata = {
   title: 'Blog | Portfolio',
@@ -29,54 +29,79 @@ export default function BlogIndex() {
   ];
 
   return (
-    <>
-      <Navbar />
-      <main style={{ minHeight: '100vh' }}>
-        <section style={{ maxWidth: '900px', margin: '0 auto', padding: '40px 20px' }}>
-          <h1 style={{ fontSize: '28px', color: '#00ff00', textShadow: '3px 3px 0 #ff00ff', marginBottom: '15px' }}>
-            BLOG 📝
-          </h1>
-          <p style={{ fontSize: '14px', color: '#e0e0e0', marginBottom: '30px', lineHeight: 1.6 }}>
-            Articles and insights about data engineering, ETL, and software development.
+    <PortfolioChrome>
+      <div
+        style={{
+          border: '2px solid',
+          borderColor: '#dfdfdf #808080 #808080 #dfdfdf',
+          background: '#c0c0c0',
+          marginBottom: '20px',
+        }}
+      >
+        <div
+          style={{
+            background: 'linear-gradient(90deg, #000080, #1084d7)',
+            color: 'white',
+            padding: '2px 2px',
+            fontWeight: 'bold',
+            fontSize: '11px',
+          }}
+        >
+          Blog
+        </div>
+        <div style={{ padding: '12px', background: '#c0c0c0', fontSize: '11px', color: '#000' }}>
+          <p style={{ margin: '0 0 12px 0', lineHeight: 1.6 }}>
+            Short notes and longer-form write-ups about data engineering, ETL, and software craftsmanship.
           </p>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            {articles.map((article, idx) => (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {articles.map((article) => (
               <div
-                key={idx}
-                className="nes-container is-dark is-rounded"
-                style={{ padding: '20px', borderLeft: `4px solid ${['#00ff00', '#00ffff', '#ff00ff'][idx % 3]}` }}
+                key={article.title}
+                style={{
+                  border: '1px solid #808080',
+                  background: '#e0e0e0',
+                  padding: '8px 10px',
+                }}
               >
-                <div style={{ marginBottom: '8px' }}>
-                  <span style={{ fontSize: '11px', color: '#a0a0a0' }}>
-                    📅 {article.date}
-                  </span>
+                <div style={{ marginBottom: '4px' }}>
+                  <span style={{ fontSize: '10px', color: '#555' }}>📅 {article.date}</span>
                 </div>
-                <h2 style={{ 
-                  fontSize: '16px', 
-                  color: ['#00ff00', '#00ffff', '#ff00ff'][idx % 3], 
-                  textShadow: '2px 2px 0 #212121',
-                  marginBottom: '10px',
-                  fontWeight: 'bold'
-                }}>
+                <h2
+                  style={{
+                    fontSize: '12px',
+                    fontWeight: 'bold',
+                    margin: '0 0 4px 0',
+                    color: '#000080',
+                  }}
+                >
                   {article.title}
                 </h2>
-                <p style={{ fontSize: '12px', color: '#e0e0e0', marginBottom: '12px', lineHeight: 1.6 }}>
+                <p style={{ fontSize: '11px', margin: '0 0 6px 0', lineHeight: 1.4 }}>
                   {article.description}
                 </p>
-                <a
+                <Link
                   href={article.link}
-                  className="nes-btn is-primary"
-                  style={{ fontSize: '10px' }}
+                  style={{
+                    ...{
+                      padding: '4px 8px',
+                      background: '#c0c0c0',
+                      border: '2px solid',
+                      borderColor: '#dfdfdf #808080 #808080 #dfdfdf',
+                      textDecoration: 'none',
+                      color: '#000080',
+                      fontSize: '10px',
+                      fontWeight: 'bold',
+                      cursor: 'pointer',
+                    },
+                  }}
                 >
                   READ MORE →
-                </a>
+                </Link>
               </div>
             ))}
           </div>
-        </section>
-      </main>
-      <Footer />
-    </>
+        </div>
+      </div>
+    </PortfolioChrome>
   );
 }
