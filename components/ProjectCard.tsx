@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 export interface Project {
   id: string;
   title: string;
@@ -14,73 +12,72 @@ interface ProjectCardProps {
   project: Project;
 }
 
+const cardBorder = { border: '2px solid', borderColor: '#dfdfdf #808080 #808080 #dfdfdf' };
+const btnStyle = {
+  padding: '4px 8px',
+  background: '#c0c0c0',
+  border: '2px solid',
+  borderColor: '#dfdfdf #808080 #808080 #dfdfdf',
+  textDecoration: 'none' as const,
+  color: '#000080',
+  fontSize: '10px',
+  fontWeight: 'bold' as const,
+  cursor: 'pointer' as const,
+  flex: 1,
+  textAlign: 'center' as const,
+};
+
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="nes-container is-dark is-rounded" style={{ 
-      padding: '15px', 
-      marginBottom: '15px',
-      minHeight: '100%',
-      display: 'flex',
-      flexDirection: 'column'
-    }}>
-      {project.image && (
-        <div style={{ position: 'relative', width: '100%', height: '150px', marginBottom: '10px' }}>
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="pixelated"
-            style={{ objectFit: 'cover' }}
-          />
-        </div>
-      )}
-      
-      <h3 style={{ color: '#00ff00', textShadow: '2px 2px 0 #ff00ff', marginBottom: '8px', fontSize: '14px' }}>
-        🎮 {project.title}
-      </h3>
-      
-      <p style={{ fontSize: '11px', lineHeight: '1.5', marginBottom: '10px', color: '#e0e0e0', flex: 1 }}>
+    <div
+      style={{
+        ...cardBorder,
+        background: '#c0c0c0',
+        padding: '12px',
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100%',
+      }}
+    >
+      <div
+        style={{
+          background: 'linear-gradient(90deg, #000080, #1084d7)',
+          color: 'white',
+          padding: '4px 6px',
+          fontWeight: 'bold',
+          fontSize: '11px',
+          margin: '-12px -12px 10px -12px',
+        }}
+      >
+        🔹 {project.title}
+      </div>
+      <p style={{ fontSize: '11px', lineHeight: 1.5, marginBottom: '10px', color: '#000', flex: 1 }}>
         {project.description}
       </p>
-      
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '10px' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginBottom: '10px' }}>
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="nes-badge"
-            style={{ 
-              fontSize: '10px',
-              backgroundColor: '#ff00ff',
+            style={{
+              fontSize: '9px',
+              backgroundColor: '#e0e0e0',
               color: '#000',
-              padding: '3px 6px',
-              border: '2px solid #ff00ff'
+              padding: '2px 5px',
+              border: '1px solid #808080',
             }}
           >
             {tag}
           </span>
         ))}
       </div>
-      
       <div style={{ display: 'flex', gap: '8px' }}>
         {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nes-btn"
-            style={{ fontSize: '10px', flex: 1 }}
-          >
+          <a href={project.github} target="_blank" rel="noopener noreferrer" style={btnStyle}>
             CODE
           </a>
         )}
         {project.demo && (
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nes-btn is-primary"
-            style={{ fontSize: '10px', flex: 1 }}
-          >
+          <a href={project.demo} target="_blank" rel="noopener noreferrer" style={btnStyle}>
             DEMO
           </a>
         )}

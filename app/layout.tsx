@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import 'nes.css/css/nes.min.css';
 import "./globals.css";
 
+const assetPrefix =
+  process.env.NODE_ENV === "development" ? "" : "/WebsiteResume";
+
 export const metadata: Metadata = {
   title: "Portfolio | Developer",
   description: "A retro 8-bit style portfolio showcasing ETL and full-stack development",
@@ -20,7 +23,7 @@ export default function RootLayout({
             margin: 0;
             padding: 0;
             background-color: #FFD700;
-            background-image: url('/WebsiteResume/images/retro-explorer.jpg');
+            background-image: url('${assetPrefix}/images/retro-explorer.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center center;

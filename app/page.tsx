@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { getAssetPath } from '@/utils/assetPath';
 
 export default function Home() {
@@ -138,9 +139,9 @@ export default function Home() {
           width: 'auto'
         }} />
         
-        {/* Navigation Links */}
+        {/* Navigation Links - Link respects basePath on GitHub Pages */}
         <div style={{ display: 'flex', gap: '15px', alignItems: 'center', flex: 1 }}>
-          <a href="/" style={{
+          <Link href="/" style={{
             color: '#fff',
             textDecoration: 'none',
             fontSize: '10px',
@@ -149,8 +150,8 @@ export default function Home() {
             padding: '2px 4px'
           }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
             Home
-          </a>
-          <a href="/" style={{
+          </Link>
+          <Link href="/" style={{
             color: '#fff',
             textDecoration: 'none',
             fontSize: '10px',
@@ -159,8 +160,8 @@ export default function Home() {
             padding: '2px 4px'
           }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
             Profile
-          </a>
-          <a href="/" style={{
+          </Link>
+          <Link href="/" style={{
             color: '#fff',
             textDecoration: 'none',
             fontSize: '10px',
@@ -169,8 +170,8 @@ export default function Home() {
             padding: '2px 4px'
           }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
             Friends
-          </a>
-          <a href="/" style={{
+          </Link>
+          <Link href="/" style={{
             color: '#fff',
             textDecoration: 'none',
             fontSize: '10px',
@@ -179,8 +180,8 @@ export default function Home() {
             padding: '2px 4px'
           }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
             Music
-          </a>
-          <a href="/" style={{
+          </Link>
+          <Link href="/" style={{
             color: '#fff',
             textDecoration: 'none',
             fontSize: '10px',
@@ -189,8 +190,8 @@ export default function Home() {
             padding: '2px 4px'
           }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
             Photos
-          </a>
-          <a href="/" style={{
+          </Link>
+          <Link href="/" style={{
             color: '#fff',
             textDecoration: 'none',
             fontSize: '10px',
@@ -199,8 +200,8 @@ export default function Home() {
             padding: '2px 4px'
           }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
             Videos
-          </a>
-          <a href="/" style={{
+          </Link>
+          <Link href="/blog" style={{
             color: '#fff',
             textDecoration: 'none',
             fontSize: '10px',
@@ -209,7 +210,7 @@ export default function Home() {
             padding: '2px 4px'
           }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
             Blog
-          </a>
+          </Link>
         </div>
 
         {/* Search Bar */}
@@ -237,23 +238,23 @@ export default function Home() {
 
         {/* Right Side Account Links */}
         <div style={{ display: 'flex', gap: '12px', marginLeft: 'auto' }}>
-          <a href="/" style={{
+          <Link href="/" style={{
             color: '#fff',
             textDecoration: 'none',
             fontSize: '10px',
             cursor: 'pointer'
           }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
             Sign Out
-          </a>
+          </Link>
           <span style={{ color: '#666', fontSize: '10px' }}>|</span>
-          <a href="/" style={{
+          <Link href="/" style={{
             color: '#fff',
             textDecoration: 'none',
             fontSize: '10px',
             cursor: 'pointer'
           }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
             Help
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -486,11 +487,10 @@ export default function Home() {
                   </tr>
                   <tr>
                     <td style={{ padding: '8px', background: '#c0c0c0', fontSize: '11px', color: '#000' }}>
-                      <ul style={{ margin: '0', paddingLeft: '20px' }}>
-                        <li>🔹 FamilyGPT: A custom built ChatGPT like agent to store family history, data and quickly answer inquiries about the same</li>
-                        <li>🔹 DACPAC Conversion of Legacy SQL DB: Taking a manual database and converting it into a fully Ev2 SDP deployable Dacpac</li>
-                        <li>🔹 Data Migration Visuals: Visuals that assist in the ETL process for large legacy Systems</li>
-                        <li>🔹 Google Cloud Professional Cert Project</li>
+                      <ul style={{ margin: '0', paddingLeft: '20px', listStylePosition: 'outside' }}>
+                        <li style={{ marginBottom: '1em' }}>🔹 <a href="https://github.com/yagomez/JobTracker" target="_blank" rel="noopener noreferrer" style={{ color: '#000080', textDecoration: 'underline' }}>Job Tracker</a> – Typed Full-Stack CRUD System: Designed and implemented a full-stack job tracking application using Next.js API Routes, TypeScript, and PostgreSQL, with structured schema design and RESTful CRUD endpoints. Built modular API handlers (GET/POST/PUT/DELETE), environment-configured database connections, and production-ready deployment workflows. Includes optional OpenAI-powered analytics for application insights. — <a href="https://job-tracker-yagomez.vercel.app/demo" target="_blank" rel="noopener noreferrer" style={{ color: '#000080', textDecoration: 'underline' }}>Try demo</a></li>
+                        <li style={{ marginBottom: '1em' }}>🔹 PersonalGPT – User-Owned AI Infrastructure: Designed and deployed a full-stack AI assistant platform using FastAPI, PostgreSQL (pgvector), Redis, and Next.js, enabling persistent conversation storage and semantic search. Implemented secure OAuth and JWT authentication, vector-based retrieval, and custom LLM orchestration without external frameworks. Containerized backend with Docker and integrated GitHub Actions CI/CD for production-ready deployment.</li>
+                        <li style={{ marginBottom: '1em' }}>🔹 Luxury Marketplace Data Platform (ETL + Warehouse + Analytics Layer): Designed and implemented a scalable ingestion and analytics platform combining multi-source scraping, normalization, validation, and structured relational modeling. Built platform-agnostic product models, cross-marketplace deduplication (similarity scoring + threshold grouping), and time-series price history tracking. Exposed comparison and trend algorithms via REST APIs, enabling best-price detection and pricing variance analysis. Engineered for extensibility, data quality validation, and rate-limited, responsible ingestion.</li>
                       </ul>
                     </td>
                   </tr>
@@ -560,13 +560,13 @@ export default function Home() {
                       </div>
                       
                       <p style={{ margin: '0', fontSize: '9px', textAlign: 'center' }}>
-                        <a href="/" style={{
+                        <Link href="/" style={{
                           color: '#0066cc',
                           textDecoration: 'underline',
                           cursor: 'pointer'
                         }}>
                           View All of yarel&apos;s Friends
-                        </a>
+                        </Link>
                       </p>
                     </td>
                   </tr>
@@ -784,7 +784,7 @@ export default function Home() {
               Navigation
             </div>
             <div style={{ padding: '8px', background: '#c0c0c0', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <a href="/projects" style={{
+              <Link href="/projects" style={{
                 padding: '4px 8px',
                 background: '#c0c0c0',
                 border: '2px solid',
@@ -797,8 +797,8 @@ export default function Home() {
                 cursor: 'pointer'
               }}>
                 Projects
-              </a>
-              <a href="/about" style={{
+              </Link>
+              <Link href="/about" style={{
                 padding: '4px 8px',
                 background: '#c0c0c0',
                 border: '2px solid',
@@ -811,8 +811,8 @@ export default function Home() {
                 cursor: 'pointer'
               }}>
                 About Me
-              </a>
-              <a href="/blog" style={{
+              </Link>
+              <Link href="/blog" style={{
                 padding: '4px 8px',
                 background: '#c0c0c0',
                 border: '2px solid',
@@ -825,7 +825,7 @@ export default function Home() {
                 cursor: 'pointer'
               }}>
                 Blog
-              </a>
+              </Link>
             </div>
           </div>
       </div>
@@ -852,7 +852,7 @@ export default function Home() {
         
         {/* Navigation Links */}
         <div style={{ display: 'flex', gap: '15px', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-          <a href="/" style={{
+          <Link href="/" style={{
             color: '#fff',
             textDecoration: 'none',
             fontSize: '10px',
@@ -861,8 +861,8 @@ export default function Home() {
             padding: '2px 4px'
           }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
             Home
-          </a>
-          <a href="/" style={{
+          </Link>
+          <Link href="/" style={{
             color: '#fff',
             textDecoration: 'none',
             fontSize: '10px',
@@ -871,7 +871,7 @@ export default function Home() {
             padding: '2px 4px'
           }} onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#ffcc00'} onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = '#fff'}>
             Profile
-          </a>
+          </Link>
         </div>
       </div>
     </main>

@@ -1,5 +1,5 @@
-import { Navbar } from '@/components/Navbar';
-import { Footer } from '@/components/Footer';
+import Link from 'next/link';
+import { getAssetPath } from '@/utils/assetPath';
 import { ProjectCard, type Project } from '@/components/ProjectCard';
 
 export const metadata = {
@@ -7,7 +7,18 @@ export const metadata = {
   description: 'View my featured projects and work',
 };
 
+// Update JOB_TRACKER_DEMO_URL after deploying job-tracker (e.g. Vercel: https://your-app.vercel.app/demo)
+const JOB_TRACKER_DEMO_URL = 'https://job-tracker-yagomez.vercel.app/demo';
+
 const projects: Project[] = [
+  {
+    id: 'job-tracker',
+    title: 'Job Tracker',
+    description: 'Full-stack app to track job applications with calendar view, analytics, search, and optional AI insights. Next.js, TypeScript, SQLite, Tailwind. Demo mode uses mock data for portfolio sharing.',
+    tags: ['Next.js', 'React', 'TypeScript', 'SQLite', 'Tailwind'],
+    github: 'https://github.com/yagomez/JobTracker',
+    demo: JOB_TRACKER_DEMO_URL,
+  },
   {
     id: '1',
     title: 'Real-Time Data Pipeline',
@@ -54,29 +65,172 @@ const projects: Project[] = [
   },
 ];
 
+const navLinkStyle = {
+  color: '#fff',
+  textDecoration: 'none' as const,
+  fontSize: '10px',
+  fontWeight: 'normal' as const,
+  cursor: 'pointer' as const,
+  padding: '2px 4px',
+};
+
 export default function Projects() {
   return (
-    <>
-      <Navbar />
-      <main style={{ minHeight: '100vh' }}>
-        <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
-          <div style={{ marginBottom: '30px' }}>
-            <h1 style={{ fontSize: '28px', color: '#00ff00', textShadow: '3px 3px 0 #ff00ff', marginBottom: '15px' }}>
-              PROJECTS 🎮
-            </h1>
-            <p style={{ fontSize: '14px', color: '#e0e0e0', lineHeight: 1.6 }}>
+    <main style={{ padding: 0, minHeight: '100vh' }}>
+      {/* Same MySpace-Style Top Navigation as home */}
+      <div style={{
+        width: '100%',
+        background: '#000',
+        padding: '6px 0',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '20px',
+        paddingLeft: '15px',
+        paddingRight: '15px',
+        boxSizing: 'border-box',
+        minHeight: '28px',
+      }}>
+        <Link href="/" style={{ display: 'flex' }}>
+          <img src={getAssetPath('/images/ysicon.png')} alt="Logo" style={{ height: '120px', width: 'auto' }} />
+        </Link>
+        <div style={{ display: 'flex', gap: '15px', alignItems: 'center', flex: 1 }}>
+          <Link href="/" style={navLinkStyle}>Home</Link>
+          <Link href="/" style={navLinkStyle}>Profile</Link>
+          <Link href="/" style={navLinkStyle}>Friends</Link>
+          <Link href="/" style={navLinkStyle}>Music</Link>
+          <Link href="/" style={navLinkStyle}>Photos</Link>
+          <Link href="/" style={navLinkStyle}>Videos</Link>
+          <Link href="/blog" style={navLinkStyle}>Blog</Link>
+        </div>
+        <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+          <input type="text" placeholder="Search" style={{ padding: '3px 4px', fontSize: '10px', border: '1px solid #666', width: '120px', background: '#fff', color: '#000' }} />
+          <button style={{ padding: '3px 8px', background: '#ffcc00', color: '#000', border: '1px solid #999', fontSize: '10px', fontWeight: 'bold', cursor: 'pointer' }}>Go</button>
+        </div>
+        <div style={{ display: 'flex', gap: '12px', marginLeft: 'auto' }}>
+          <Link href="/" style={navLinkStyle}>Sign Out</Link>
+          <span style={{ color: '#666', fontSize: '10px' }}>|</span>
+          <Link href="/" style={navLinkStyle}>Help</Link>
+        </div>
+      </div>
+
+      <div style={{ padding: '20px' }}>
+        {/* Projects section - same table style as home page */}
+        <div style={{
+          border: '2px solid',
+          borderColor: '#dfdfdf #808080 #808080 #dfdfdf',
+          background: '#c0c0c0',
+          marginBottom: '20px',
+        }}>
+          <div style={{
+            background: 'linear-gradient(90deg, #000080, #1084d7)',
+            color: 'white',
+            padding: '2px 2px',
+            fontWeight: 'bold',
+            fontSize: '11px',
+          }}>
+            Featured Projects
+          </div>
+          <div style={{ padding: '12px', background: '#c0c0c0', fontSize: '11px', color: '#000' }}>
+            <p style={{ margin: '0 0 12px 0', lineHeight: 1.5 }}>
               A showcase of my recent work in data engineering, ETL, and full-stack development.
             </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '15px' }}>
+              {projects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
           </div>
+        </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '15px' }}>
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+        {/* Navigation block - same as home */}
+        <div style={{
+          border: '2px solid',
+          borderColor: '#dfdfdf #808080 #808080 #dfdfdf',
+          background: '#c0c0c0',
+          marginTop: '20px',
+        }}>
+          <div style={{
+            background: 'linear-gradient(90deg, #000080, #1084d7)',
+            color: 'white',
+            padding: '2px 2px',
+            fontWeight: 'bold',
+            fontSize: '11px',
+          }}>
+            Navigation
           </div>
-        </section>
-      </main>
-      <Footer />
-    </>
+          <div style={{ padding: '8px', background: '#c0c0c0', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <Link href="/" style={{
+              padding: '4px 8px',
+              background: '#c0c0c0',
+              border: '2px solid',
+              borderColor: '#dfdfdf #808080 #808080 #dfdfdf',
+              textDecoration: 'none',
+              color: '#000080',
+              fontSize: '11px',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              cursor: 'pointer',
+            }}>Home</Link>
+            <Link href="/projects" style={{
+              padding: '4px 8px',
+              background: '#c0c0c0',
+              border: '2px solid',
+              borderColor: '#dfdfdf #808080 #808080 #dfdfdf',
+              textDecoration: 'none',
+              color: '#000080',
+              fontSize: '11px',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              cursor: 'pointer',
+            }}>Projects</Link>
+            <Link href="/about" style={{
+              padding: '4px 8px',
+              background: '#c0c0c0',
+              border: '2px solid',
+              borderColor: '#dfdfdf #808080 #808080 #dfdfdf',
+              textDecoration: 'none',
+              color: '#000080',
+              fontSize: '11px',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              cursor: 'pointer',
+            }}>About Me</Link>
+            <Link href="/blog" style={{
+              padding: '4px 8px',
+              background: '#c0c0c0',
+              border: '2px solid',
+              borderColor: '#dfdfdf #808080 #808080 #dfdfdf',
+              textDecoration: 'none',
+              color: '#000080',
+              fontSize: '11px',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              cursor: 'pointer',
+            }}>Blog</Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Same bottom nav as home */}
+      <div style={{
+        width: '100%',
+        background: '#000',
+        padding: '6px 0',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '20px',
+        paddingLeft: '15px',
+        paddingRight: '15px',
+        boxSizing: 'border-box',
+        minHeight: '28px',
+        marginTop: '20px',
+      }}>
+        <img src={getAssetPath('/images/ysicon.png')} alt="Logo" style={{ height: '120px', width: 'auto' }} />
+        <div style={{ display: 'flex', gap: '15px', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+          <Link href="/" style={navLinkStyle}>Home</Link>
+          <Link href="/" style={navLinkStyle}>Profile</Link>
+        </div>
+      </div>
+    </main>
   );
 }
