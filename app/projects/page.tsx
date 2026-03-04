@@ -7,8 +7,8 @@ export const metadata = {
   description: 'View my featured projects and work',
 };
 
-// Update JOB_TRACKER_DEMO_URL after deploying job-tracker (e.g. Vercel: https://your-app.vercel.app/demo)
-const JOB_TRACKER_DEMO_URL = 'https://job-tracker-yagomez.vercel.app/demo';
+// Live job-tracker deployment (Vercel)
+const JOB_TRACKER_DEMO_URL = 'https://job-tracker-five-rho.vercel.app/demo';
 
 const projects: Project[] = [
   {
